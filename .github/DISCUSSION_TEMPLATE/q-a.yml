@@ -1,0 +1,33 @@
+title: "[Question] "
+labels: ["triage/needs"]
+body:
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - "StackKits"
+        - "Techstack"
+        - "kombify Cloud"
+        - "kombify AI Platform"
+        - "Companion Studio"
+        - "kombify Workbench"
+        - "kombify Companion"
+        - "Paperwork"
+        - "SpeechKit"
+        - "kombify Sites"
+        - "Other or not sure"
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: What are you trying to do, and where are you stuck?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Version, environment and what you already tried. Remove secrets and personal data.

@@ -1,0 +1,49 @@
+title: "[Idea] "
+labels: ["triage/needs"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas are the first step: others can upvote them. Search first; if your idea exists, upvote it and add your use case as a comment.
+  - type: dropdown
+    id: product
+    attributes:
+      label: Product
+      options:
+        - "StackKits"
+        - "Techstack"
+        - "kombify Cloud"
+        - "kombify AI Platform"
+        - "Companion Studio"
+        - "kombify Workbench"
+        - "kombify Companion"
+        - "Paperwork"
+        - "SpeechKit"
+        - "kombify Sites"
+        - "Other or not sure"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem do you want solved?
+      description: Describe the situation and the outcome you need, not the implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: workaround
+    attributes:
+      label: How do you handle it today?
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Your idea
+      description: Optional. How you imagine it could work.
+  - type: dropdown
+    id: importance
+    attributes:
+      label: How important is it for you?
+      options:
+        - Nice to have
+        - Important
+        - Blocks me

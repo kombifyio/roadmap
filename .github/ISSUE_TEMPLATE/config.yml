@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ideas and feature requests
+    url: "https://github.com/kombifyio/roadmap/discussions/categories/ideas"
+    about: "Propose an idea or vote on an existing one. Ideas that kombify commits to become roadmap issues."
+  - name: Questions and help
+    url: "https://github.com/kombifyio/roadmap/discussions/categories/q-a"
+    about: Ask how something works or share your setup.
+  - name: Documentation
+    url: "https://docs.kombify.io"
+    about: Guides, references and troubleshooting.
+  - name: Security vulnerability
+    url: "https://kombify.io/security"
+    about: Report a vulnerability privately. Never open a public issue for it.
