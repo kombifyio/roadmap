@@ -1,0 +1,23 @@
+name: OIDC claim check (temporary)
+# Temporary diagnosis for the staff test: prints the non-secret claims of this
+# repository's GitHub OIDC token, never the token. Removed after one run.
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/oidc-claims.yml]
+permissions:
+  id-token: write
+jobs:
+  claims:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 3
+    steps:
+      - name: Print claims
+        run: |
+          node -e '
+          const u = new URL(process.env.ACTIONS_ID_TOKEN_REQUEST_URL); u.searchParams.set("audience", "urn:kombify:diagnostic-only");
+          fetch(u, { headers: { Authorization: "Bearer " + process.env.ACTIONS_ID_TOKEN_REQUEST_TOKEN } }).then(r => r.json()).then(({ value }) => {
+            const c = JSON.parse(Buffer.from(value.split(".")[1], "base64url"));
+            const keys = ["iss","aud","sub","repository","repository_owner","repository_id","repository_owner_id","repository_visibility","ref","ref_type","workflow_ref","job_workflow_ref","runner_environment","event_name","enterprise","enterprise_id"];
+            console.log(JSON.stringify({ ...Object.fromEntries(keys.map(k => [k, c[k]])), lifetime: c.exp - c.iat, claim_names: Object.keys(c).sort() }, null, 1));
+          });'
